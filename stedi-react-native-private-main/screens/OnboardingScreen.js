@@ -1,6 +1,8 @@
 import React from 'react';
+import {TextInput } from "react-native";
 import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
+
 import { SafeAreaView } from 'react-navigation';
 
 const Dots = ({selected})=> {
@@ -9,6 +11,7 @@ let backgroundColor;
 backgroundColor = selected ? '#A0CE4E': 'rgba(0, 0, 0, 0.3)';
 
 return(
+  
   <View
     style={{
   width:5,
@@ -41,13 +44,30 @@ const OnboardingScreen = ({setFirstLaunch}) =>{
         onDone={()=> setFirstLaunch(false)}
         pages={[
             {
-              backgroundColor: '#fff',
-              image: <Image   style={{height: '60%', width: '90%', resizeMode:'contain', marginBottom:-200}} source={require('../image/testing.png')} />,
-              title: <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}>Welcome to STEDI  Balance</Text>,
-              subtitle: 'STEDI Balance will now send a text with a code',
+              backgroundColor: '#7b83eb',
+              image: <Image   style={{height: '60%', width: '90%', resizeMode:'contain', marginBottom:-200,}} source={require('../image/testing.png')} />,
+              // title: <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}>Welcome to STEDI  Balance</Text>,
+              subtitle: (
+                <View>
+                  <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}>Your Privacy is safe with us!
+                  Please give us your phone number.</Text>
+                  <TextInput placeholder='Phone number' style={{fontWeight:'bold', 
+                  textAlign:'center', 
+                  color:'#5059c9',
+                  height: 40,
+                  margin: 12,
+                  borderWidth: 2,
+                  padding: 10,}
+                  }></TextInput>
+                </View>
+                
+                
+
+              ),
+              //'STEDI Balance will now send a text with a code',
             },
             {
-                backgroundColor: '#fff',
+                backgroundColor: '#ffbd4f',
                 image: <Image style={{height: '60%', width: '80%', resizeMode:'contain', marginBottom:-100}} source={require('../image/yeah.png')} />,
                 title: <Text style={{fontWeight:'bold', fontSize: 19, margin:15, textAlign:'center', color:'#A0CE4E', marginTop: -130 }}>Congratulations!</Text>,
                 subtitle: 'You have created a profile with STEDI Balance',
@@ -79,6 +99,13 @@ const styles = StyleSheet.create({
         flex:1, 
         alignItems:'center',
         justifyContent: 'center'
-    }
-})
+    },
 
+    input: {
+      height: 40,
+      margin: 12,
+      borderWidth: 1,
+      padding: 10,
+    }
+  
+})
