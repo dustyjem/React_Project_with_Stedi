@@ -18,7 +18,6 @@ return(
   height:5,
   marginHorizontal: 3,
   borderRadius: 5,
-  backgroundColor
 
     }}
   />
@@ -30,7 +29,12 @@ const Done = ({...props}) => {
   <TouchableOpacity style={{margin: 15}}
   {...props}
   >
-  <Text>Done</Text></TouchableOpacity>
+  <Text style={{
+  marginHorizontal: 3,
+  color:'#FFFFFF',
+  borderRadius: 5,
+
+    }}>Done</Text></TouchableOpacity>
 )}
 
 const OnboardingScreen = ({setFirstLaunch}) =>{
@@ -46,24 +50,25 @@ const OnboardingScreen = ({setFirstLaunch}) =>{
             {
               backgroundColor: '#7b83eb',
               image: <Image   style={{height: '60%', width: '90%', resizeMode:'contain', marginBottom:-200,}} source={require('../image/testing.png')} />,
-              // title: <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}>Welcome to STEDI  Balance</Text>,
-              subtitle: (
-                <View>
-                  <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}>Your Privacy is safe with us!
-                  Please give us your phone number.</Text>
-                  <TextInput placeholder='Phone number' style={{fontWeight:'bold', 
-                  textAlign:'center', 
-                  color:'#5059c9',
-                  height: 40,
-                  margin: 12,
-                  borderWidth: 2,
-                  padding: 10,}
-                  }></TextInput>
-                </View>
+              title: <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}></Text>,
+              // subtitle: (
+              //   <View>
+              //     <Text style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: -70}}>Your Privacy is safe with us!
+              //     Please enter your phone number.</Text>
+              //     <TextInput placeholder='Phone number' style={{fontWeight:'bold', 
+              //     textAlign:'center', 
+              //     color:'#5059c9',
+              //     height: 40,
+              //     margin: 12,
+              //     borderWidth: 2,
+              //     borderRadius: 5,
+              //     }
+              //     }></TextInput>
+              //   </View>
                 
                 
 
-              ),
+              // ),
               //'STEDI Balance will now send a text with a code',
             },
             {
@@ -73,7 +78,7 @@ const OnboardingScreen = ({setFirstLaunch}) =>{
                 subtitle: 'You have created a profile with STEDI Balance',
               },
               {
-                backgroundColor: '#fff',
+                backgroundColor: '#242582',
                 image: <Image style={{height: '70%', width:'90%',  resizeMode:'contain', marginTop:-100}} source={require('../image/refer.png')} />,
                 title: <Text style={{fontWeight:'bold', textAlign:'center', fontSize: 19, margin:15, color:'#A0CE4E', marginTop:-160}}>Share STEDI Balance with you friends</Text>,
                 subtitle: 'Share and invite your family and friends your progress with us',
