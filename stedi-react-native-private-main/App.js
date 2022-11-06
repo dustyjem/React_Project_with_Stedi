@@ -6,6 +6,8 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { Button, TextInput } from 'react-native';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+
 //Just a comment for push
 
 const AppStack = createNativeStackNavigator();
@@ -19,7 +21,7 @@ const App = () =>{
   const [isFirstLaunch, setFirstLaunch] = React.useState(true);
   const [loggedInState, setLoggedInState] = React.useState(loggedInStates.NOT_LOGGED_IN);
   const [homeTodayScore, setHomeTodayScore] = React.useState(0);
-  const[phnoneNumber, setPhoneNumber] = React.useState('');
+  const[phoneNumber, setPhoneNumber] = React.useState('');
   const [oneTimePassword, setOneTimePassword] = React.useState(null)
 
    if (isFirstLaunch == true){
@@ -43,17 +45,20 @@ return(
                     borderRadius: 5,
                     margin: 0,
                     marginTop: 100,
+                    fontSize:18,
+                    backgroundColor:"#ffbd4f"
+                    
                     }}
                     value = {setPhoneNumber}
                     onChangeText = {setPhoneNumber}>
               </TextInput>
             <Button title='Send'
-                    style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:19, margin:12,  marginTop: 400, backgroundColor:'black', margin: 12,
+                    style={{fontWeight:'bold', textAlign:'center', color:'#A0CE4E', fontSize:30, margin:12,  marginTop: 400, backgroundColor:'#0b0b0b', margin: 30,
                         borderWidth: 2,
                        borderRadius: 5,}}
                     onPress = {async()=>{
                     console.log('This Button was pressed!');
-                    var the_url = await fetch("https://dev.stedi.me/twofactorlogin/" + phnoneNumber,
+                    var the_url = await fetch("https://dev.stedi.me/twofactorlogin/" + phoneNumber,
                     {
                       method: 'POST',
                       headers:{
@@ -66,7 +71,7 @@ return(
                     </Button>
               </View>
               )}
-              else if(loggedInStates == loggedInStates.CODE_SENT){
+              else if(loggedInState == loggedInStates.CODE_SENT){
                 return(
                   <View>
                     <TextInput placeholder='One Time Password'
@@ -90,16 +95,25 @@ return(
                        borderRadius: 5,}}
                     onPress = {async()=>{
                     console.log('Login Button was pressed!');
-                    var the_url = await fetch("https://dev.stedi.me/twofactorlogin",
+                    console.log(oneTimePassword, " ", phoneNumber)
+                    const loginResponse = await fetch("https://dev.stedi.me/twofactorlogin",
                     {
                       method: 'POST', 
                       headers:{
                         'content-type': 'application/text'
-                      }
-                      // body:
+                      },
+                      body:JSON.stringify({
+                        phoneNumber,
+                        oneTimePassword
+                      })
 
                     })
-                    setLoggedInState(loggedInStates.CODE_SENT)
+                    console.log("Login response status", loginResponse.status)
+                    if(loginResponse.status == 200){
+                      setLoggedInState(loggedInStates.LOGGED_IN)
+                    }else{
+                      setLoggedInState(loggedInStates.NOT_LOGGED_IN)
+                    }
                     }}>
                     </Button>
                   </View>
