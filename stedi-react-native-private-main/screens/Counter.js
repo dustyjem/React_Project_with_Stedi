@@ -115,7 +115,7 @@ totalSteps:30
  }
 }
 
-//Get the results of the counter
+//Get the results of the counter checker
 
 const getResults = async () =>{
 
