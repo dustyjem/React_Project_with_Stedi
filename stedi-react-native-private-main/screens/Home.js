@@ -60,25 +60,25 @@ const colorsToday = colors[day.getDay()];
 
 
   return (
-    <ScrollView>
-    <SafeAreaView style={{alignItems:'center'}}>
+    <ScrollView style={{backgroundColor: '#bac44a'}}>
+    <SafeAreaView style={{alignItems:'center' , backgroundColor: '#63d1ec'}}>
       <View style={{width:'90%', backgroundColor:backgroundColorsToday, borderRadius:20, padding:20, marginTop:15 }}>
       <FontAwesome5 name="quote-left" style={{fontSize:30, marginBottom:1, color:colorsToday}}/>
       <Text style={{fontSize:16, lineHeight:26, color:'white' ,textAlign:'center',fontWeight:'400', marginBottom:10, letterSpacing:1.1, paddingHorizontal:27}}>{quote}</Text>
       <Text style={{textAlign:'right', fontStyle:'italic', fontSize:13, fontWeight:'300', color:colorsToday}}>― {author}</Text>
       </View> 
-      <Text style={{marginTop:12, fontSize:20, marginRight:230, color:'#B4B4B4'}}>Activity</Text>
+      <Text style={{marginTop:12, fontSize:20, marginRight:230, color:'#FFFF'}}>Activity</Text>
       <View style={{ flexDirection:'row', flexWrap: 'wrap', paddingLeft:15, paddingRight:15 }}> 
-      <Card style={{width:'50%',borderRadius:20, marginTop:10, shadowColor: "#000",shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4}}>
+      <Card style={{width:'50%',borderRadius:20, marginTop:10, shadowColor: "#000",shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4, backgroundColor: '#bac44a'}}>
         <CardTitle   titleStyle={{fontSize:17}}
         title='Today'
        />
-       <Text style={{fontSize:35,fontWeight:'bold', color:'black'}}>{score}</Text>
+       <Text style={{fontSize:50, fontWeight:'bold', color:'black'}}>{score}</Text>
         <FontAwesome5 name="arrow-down"/>
         <CardContent>
         </CardContent>
       </Card>
-      <Card style={{ width:'50%', height:'135%', borderRadius:20, marginTop:10,shadowColor: "#000",shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4}}>
+      <Card style={{ width:'50%', height:'135%', borderRadius:20, marginTop:10,shadowColor: "#000",shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4, backgroundColor: '#a18089'}}>
         <CardTitle  titleStyle={{fontSize:17}}
         subtitleStyle={{fontSize:35,fontWeight:'bold', color:'black'}}
         title='Weekly'
@@ -89,7 +89,7 @@ const colorsToday = colors[day.getDay()];
       </Card>
       </View>
       <View style={{ flexDirection:'row', paddingLeft:15, paddingRight:15 }}>
-      <Card style={{ width:'-10%',height:'70%', borderRadius:20, marginTop:85,shadowColor: "#000",shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4}}>
+      <Card style={{ width:'-10%',height:'70%', borderRadius:20, marginTop:85,shadowColor: "#000",shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.23, shadowRadius: 2.62, elevation: 4, backgroundColor: '#f7e6g0'}}>
         <CardTitle  
          titleStyle={{fontSize:17}}
          subtitleStyle={{fontSize:35,fontWeight:'bold', color:'black'}}

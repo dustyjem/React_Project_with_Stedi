@@ -1,8 +1,10 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView , Share, ScrollView, Button} from 'react-native';
 import { Card, CardTitle, CardContent} from 'react-native-material-cards';
 import BarChart from 'react-native-bar-chart';
+import {Camera} from 'expo-camera';
+// import { useEffect, useState } from 'react';
 // import Share from 'react-native-share';
 
 
@@ -21,6 +23,14 @@ import BarChart from 'react-native-bar-chart';
 // const horizontalData = ['S', 'M', 'T', 'W', 'T', 'F','S'];
 
 const Profile = (props) => {
+
+  useEffect(()=>{
+    const getUserInfo = async ()=>{
+      const cameraPermission = await Camera.requestCameraPermissionsAsync();
+    };
+    getUserInfo();
+  },[]);
+
   const myCustomerShare = async() =>{
     const shareOptions = {
       message: 'This is a test'
@@ -35,8 +45,8 @@ const Profile = (props) => {
     }
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-         <Card style={{backgroundColor:'white', borderRadius: 10, margin:20 ,width: 320, shadowColor: "#000",
+    <SafeAreaView style={{backgroundColor: '#bac44a', flex: 1}}>
+         <Card style={{backgroundColor:'white', borderRadius: 10, margin:20 ,width: 320, shadowColor: "#000", backgroundColor: '#bac44a',
 shadowOffset: {
 	width: 0,
 	height: 2,
@@ -47,8 +57,8 @@ shadowRadius: 2.62,
 elevation: 4}}>
      <CardContent>
      <Image style={{height: 100, width:100, borderRadius: 75}}
-      source={require('../image/me.jpg')} />
-    <Text style={{marginTop:10,marginBottom:10,fontWeight: 'bold'}}>Sarah Romero</Text>
+      source={require('../image/Profilephoto.jpg')} />
+    <Text style={{marginTop:10,marginBottom:10,fontWeight: 'bold'}}>Ekene Okeke</Text>
 
     <Text style={{marginTop:20,marginBottom:2}}>This Week's progress</Text>
 {/* <BarChart barColor='green' data={data} horizontalData={horizontalData} /> */}
