@@ -401,8 +401,6 @@ subtitle={messageOutcome()}
       );
 
       }
-
-
 }
 
 function round(n) {
